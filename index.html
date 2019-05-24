@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<title>Is it a Frappe?</title>
+
+		<!--Dependencies-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	    <link href="css/bootstrap.min.css" rel="stylesheet" />
+	    <link href="css/mdb.min.css" rel="stylesheet" />
+	    <style type="text/css">
+	    	.standard-height{
+	    		min-height: 50px;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<h1>Is it a Frappe?</h1>	
+			</div>			
+		</header>
+		<main>
+			<div class="container">
+				<div class="row standard-height">
+					<div class="col-md-12">
+						<!--Carousel Wrapper-->
+						<div class="carousel slide" data-ride="carousel">						    
+						    <!--Slides-->
+						    <div class="carousel-inner" role="listbox">
+						        <div class="carousel-item">
+						            <p>The frappe was introduced to the world at the 1957 International Trade Fair in Thessaloniki, Greece.</p>
+						        </div>
+						        <div class="carousel-item">
+						            <p>According to local lore, the invention of the coffee frappe was an accident; a Nestle’s employee inadvertently discovered the drink when he shook up cold water, instant coffee, milk and children’s instant hot chocolate mix.</p>
+						        </div>
+						        <div class="carousel-item">
+						            <p>October 7th is National Frappe Day.</p>
+						        </div>
+						        <div class="carousel-item">
+						            <p>The frappe was first sold in retail in the U.S. by a small Boston-based chain, Coffee Connection, in the mid 1980s. The frappe gained national popularity in 1995, when large retail chains started serving blended, frozen coffee beverages.</p>
+						        </div>
+						        <div class="carousel-item">
+						            <p>The word frappe first appeared in the 1848 edition of American English Dictionary and is derived from the French word frappe meaning “to Chill.”</p>
+						        </div>
+						        <div class="carousel-item">
+						            <p>The frappe is loved internationally with regional variations like: Adzuki (red bean) Frap in Japan, Dulce de LecheFrap in Argentina and the Coffee Jelly Frap in the Philippines.</p>
+						        </div>
+						        <div class="carousel-item">
+						            <p>A frappe is not a milkshake</p>
+						        </div>
+						        <div class="carousel-item">
+						            <p>In PA you can only get them in coffee shops, not ice cream places.</p>
+						        </div>
+						        <div class="carousel-item">
+						            <p>Frappes are not good for losing weight</p>
+						        </div>
+						    </div>
+						    <!--/.Slides-->
+						</div>
+						<!--/.Carousel Wrapper-->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8" id="frappeMainContent">
+						<div class="md-form">
+							<input type="text" id="ingredient-input" />
+							<label for="ingredient-input">Ingredients</label>
+							<button type="button" class="btn btn-primary" id="js-submit">Submit Ingredients</button>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<a href="https://twitter.com/intent/tweet?button_hashtag=frappe&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #frappe</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                      <a class="twitter-timeline" href="https://twitter.com/frappe?ref_src=twsrc%5Etfw">Tweets by frappe</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Merch Coming Soon</h1>
+						<p>Shirt Design</p>
+						<img src="img/merch/shirt.png" alt="Probably Not" width="150px" />
+					</div>
+				</div>
+			</div>
+		</main>
+		<!--Script Dependencies-->
+		<!--CDNs are better-->
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	    <script type="text/javascript" src="js/popper.min.js"></script>
+	    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="js/mdb.min.js"></script>
+
+	    <!--Custom Scripts-->
+	    <script type="text/javascript">
+	    	//jQuery is evil =]
+	    	var frappeJS = {
+	    		init: function(){
+	    			document.getElementById('js-submit').addEventListener('click', frappeJS.checkInput, false);
+
+	    			//Select a random slide to begin with
+	    			var slides = document.getElementsByClassName('carousel-item');
+	    			var index = Math.floor(Math.random() * (slides.length));
+	    			slides[index].classList += ' active';
+
+	    			//Activate the carousel
+	    			$('.carousel').carousel({
+					  interval: 10000
+					});
+	    		},
+
+	    		checkInput: function(){
+	    			var inputText = document.getElementById('ingredient-input').value;
+	    			if(inputText == ''){
+	    				return;
+	    			}
+
+	    			//Grab frappe div and empty
+	    			var frappeDiv = document.getElementById('frappeMainContent');
+	    			while(frappeDiv.firstChild){
+	    				frappeDiv.removeChild(frappeDiv.firstChild);
+	    			}
+
+	    			//Add new node
+	    			var headerNode = document.createElement('h3');
+	    			headerNode.innerHTML = 'Probably Not';
+	    			frappeDiv.appendChild(headerNode);
+	    		}
+	    	}
+
+	    	frappeJS.init();
+	    </script>
+	</body>
+</html>
