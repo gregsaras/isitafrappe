@@ -30,7 +30,7 @@
 						<!--Carousel Wrapper-->
 						<div class="carousel slide" data-ride="carousel">						    
 						    <!--Slides-->
-						    <div class="carousel-inner" role="listbox">
+						    <div class="carousel-inner" role="listbox" title="facts" aria-selected=true >
 						        <div class="carousel-item">
 						            <p>The frappe was introduced to the world at the 1957 International Trade Fair in Thessaloniki, Greece.</p>
 						        </div>
@@ -103,7 +103,7 @@
 	    			//Select a random slide to begin with
 	    			var slides = document.getElementsByClassName('carousel-item');
 	    			var index = Math.floor(Math.random() * (slides.length));
-	    			slides[index].classList += ' active';
+					slides[index].classList += ' active';
 
 	    			//Activate the carousel
 	    			$('.carousel').carousel({
